@@ -1,15 +1,16 @@
-#!/bin/sh
+#!/bin/bash
 
-set -e # fail fast
-set -x # print commands
+REL_DIR="resource-tutorial"
 
-git clone resource-gist updated-gist
+echo "Automated build option selected, proceeding..."
 
-cd updated-gist
-date > bumpme
 
-git config --global user.email "nobody@concourse-ci.org"
-git config --global user.name "Concourse"
 
-git add .
-git commit -m "Bumped date"
+TEMP1=`jq -r '.TEMP1' $REL_DIR/test.json`
+TEMP2=`jq -r '.TEMP2' $REL_DIR/test.json`
+
+echo "TEMP1Y=$TEMP1"
+echo "TEMP2=$TEMP2"
+echo "testinggggg"
+
+
